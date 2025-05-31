@@ -10,13 +10,13 @@
         android:layout_height="wrap_content"
 
         android:rotation="180"
+        android:layout_marginEnd="4dp"
         android:layout_centerVertical="true"
-        android:gravity="center_horizontal"
 
         android:text="Amplitude (mV)"
         android:textSize="16sp"
         android:textColor="@android:color/black"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,RtlSymmetry" />
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/ecgChart"
@@ -31,11 +31,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ecgChart"
-        android:text="Time (s)"
+
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+
+        android:text="Time (s)"
         android:textSize="16sp"
         android:textColor="@android:color/black"
-        android:paddingTop="4dp"
         tools:ignore="HardcodedText" />
 
 </RelativeLayout>
