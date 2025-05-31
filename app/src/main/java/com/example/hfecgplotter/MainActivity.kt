@@ -1,7 +1,6 @@
 package com.example.hfecgplotter
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.lifecycleScope
 import com.github.mikephil.charting.charts.LineChart
@@ -18,8 +17,6 @@ import kotlin.math.PI
 import kotlin.math.sin
 
 class MainActivity : ComponentActivity() {
-    private val TAG = "Main_Activity"
-
     // ─── USER‐CONFIGURABLE PARAMETERS ───────────────────────────────────────────
     private val samplingHz = 130f                  // e.g. 250f, 500f, 1000f, etc.
     private val uiRefreshIntervalMs = 20L           // ~50 Hz UI updates
@@ -99,19 +96,13 @@ class MainActivity : ComponentActivity() {
                 }
 
                 if (batch.isNotEmpty()) {
-                    var cnt = 0
-
                     val downSampleFactor = maxOf(1, batch.size / 50)
                     batch.forEachIndexed { idx, sample ->
                         if (idx % downSampleFactor == 0) {
                             data.addEntry(Entry(nextX, sample), 0)
                             nextX += 1f
-
-                            cnt++
                         }
                     }
-
-                    Log.d(TAG, "${batch.size}, $cnt")
 
                     data.notifyDataChanged()
                     chart.notifyDataSetChanged()
