@@ -56,7 +56,7 @@ class ECGPlotter(
             valueFormatter = object : ValueFormatter() {
                 override fun getFormattedValue(value: Float): String {
                     // Format as e.g. "0.0 mV", "-1.2 mV", etc.
-                    return String.format(Locale.US, "%.1f mV", value)
+                    return String.format(Locale.US, "%.1f", value)
                 }
             }
         }
@@ -64,9 +64,5 @@ class ECGPlotter(
         // 6) Disable right Y-Axis and legend
         chart.axisRight.isEnabled = false
         chart.legend.isEnabled = false
-
-        // 7) IMPORTANT: reserve space on the left so our rotated TextView
-        //    (“Amplitude (mV)”) won’t overlap with the chart’s Y-ticks
-        chart.extraLeftOffset = 32f
     }
 }
