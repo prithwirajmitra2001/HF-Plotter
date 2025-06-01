@@ -1,4 +1,4 @@
-package com.example.hfecgplotter
+package com.example.hfecgplotter.ui
 
 import android.content.Context
 import android.graphics.Canvas
